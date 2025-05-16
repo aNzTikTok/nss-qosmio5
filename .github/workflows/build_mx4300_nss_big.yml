@@ -120,6 +120,11 @@ jobs:
           echo "Show files in ./feeds/packages/net/strongswan/patches/"
           ls -la ./feeds/packages/net/strongswan/patches/
 
+      - name: Git rebase to upstream/main
+        run: |
+          git remote add upstream https://git.openwrt.org/openwrt/openwrt.git
+          git fetch upstream && git rebase --rebase-merges upstream/main
+
       - name: Prepare config file
         run: |
           cp ./nss-setup/diffconfig.mx4300.all.nss .config
