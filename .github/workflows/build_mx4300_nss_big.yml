@@ -117,6 +117,9 @@ jobs:
           git cherry-pick --continue
           }
 
+          echo "Show files in ./feeds/packages/net/strongswan/patches/"
+          ls -la ./feeds/packages/net/strongswan/patches/
+
       - name: Prepare config file
         run: |
           cp ./nss-setup/diffconfig.mx4300.all.nss .config
