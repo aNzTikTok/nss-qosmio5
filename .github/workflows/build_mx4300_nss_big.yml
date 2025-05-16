@@ -118,7 +118,10 @@ jobs:
           git add net/strongswan/patches/0901-uci-verbatim-patch-from-openwrt-package-sources.patch
           git cherry-pick --continue
           }
-
+          
+          echo "Move Strongswan patches to ./feeds/packages/net/strongswan/patches/"
+          mv ./net/strongswan/patches/* ./feeds/packages/net/strongswan/patches/
+          
           echo "Show files in ./feeds/packages/net/strongswan/patches/"
           ls -la ./feeds/packages/net/strongswan/patches/
 
