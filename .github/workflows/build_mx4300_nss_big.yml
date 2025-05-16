@@ -105,6 +105,7 @@ jobs:
 
           echo "Adding upstream remote"
           git remote add upstream-packages https://github.com/openwrt/packages.git
+          
           echo "Fetching specific commit"
           git fetch upstream-packages 833bc2999a8dd8b49f8dc9836f68af2e5eaa09c8
 
@@ -122,7 +123,8 @@ jobs:
       - name: Git rebase to upstream/main
         run: |
           git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
-          git fetch upstream-openwrt && git rebase --rebase-merges upstream/main
+          git fetch upstream-openwrt
+          git rebase --rebase-merges upstream-openwrt/main
 
       - name: Prepare config file
         run: |
