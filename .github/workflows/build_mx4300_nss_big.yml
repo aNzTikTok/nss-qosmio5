@@ -73,12 +73,16 @@ jobs:
           echo "Available disk space after cleanup:"
           df -h
 
-      - name: Show kernel and gcc versions
+      - name: Show kernel, gcc version, CPU core count, total memory
         run: |
           echo "Show kernel version:"
           uname -a
           echo "Show gcc version:"
           gcc --version
+          echo "Show the CPU core count:"
+          nproc
+          echo "Show the total memory:"
+          free -h
           
       - name: Set up build dependencies
         run: |
