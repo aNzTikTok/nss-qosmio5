@@ -92,6 +92,15 @@ jobs:
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
+      - name: Cherry-pick StrongSwan patches from OpenWrt upstream
+        run: |
+          git config --global user.email "test@test.com"
+          git config --global user.name "tester"
+
+          git remote add upstream https://github.com/openwrt/packages.git
+          git fetch upstream 833bc2999a8dd8b49f8dc9836f68af2e5eaa09c8
+          git cherry-pick 833bc2999a8dd8b49f8dc9836f68af2e5eaa09c8
+
       - name: Prepare config file
         run: |
           cp ./nss-setup/diffconfig.mx4300.all.nss .config
