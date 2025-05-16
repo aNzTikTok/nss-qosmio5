@@ -100,6 +100,9 @@ jobs:
           git remote add upstream https://github.com/openwrt/packages.git
           git fetch upstream 833bc2999a8dd8b49f8dc9836f68af2e5eaa09c8
           git cherry-pick 833bc2999a8dd8b49f8dc9836f68af2e5eaa09c8
+          git restore --source=833bc2999a8dd8b49f8dc9836f68af2e5eaa09c8 net/strongswan/patches/0901-uci-verbatim-patch-from-openwrt-package-sources.patch
+          git add net/strongswan/patches/0901-uci-verbatim-patch-from-openwrt-package-sources.patch
+          git cherry-pick --continue
 
       - name: Prepare config file
         run: |
