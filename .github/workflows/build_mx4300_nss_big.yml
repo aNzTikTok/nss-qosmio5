@@ -79,9 +79,9 @@ jobs:
           uname -a
           echo "Show gcc version:"
           gcc --version
-          echo "Show the CPU core count:"
+          echo "Show CPU core count:"
           nproc
-          echo "Show the total memory:"
+          echo "Show Total memory:"
           free -h
           
       - name: Set up build dependencies
