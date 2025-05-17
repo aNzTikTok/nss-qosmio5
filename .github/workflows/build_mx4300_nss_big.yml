@@ -132,6 +132,8 @@ jobs:
           git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
           git fetch upstream-openwrt
           git rebase --rebase-merges upstream-openwrt/main
+          echo "Show the latest kernel version bump"
+          git log  --oneline | grep "bump 6.6" | head -1
 
       - name: Prepare config file
         run: |
