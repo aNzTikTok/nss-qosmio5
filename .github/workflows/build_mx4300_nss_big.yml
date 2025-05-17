@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main-nss
-          fetch-depth: 0  # Fetch full history
+          fetch-depth: 100     # Adjust depth based on how far back the bump commit is
+          # fetch-depth: 1     # default shallow clone
+          # fetch-depth: 0     # Fetch full history
 
       - name: Show available disk space before cleanup
         run: |
@@ -134,11 +136,12 @@ jobs:
           git fetch upstream-openwrt
           git rebase --rebase-merges upstream-openwrt/main
 
-      - name: Search for bump commits
+      - name: Search for kernel bump commits
         run: |  
-          echo "Show the latest kernel version bump"
-          git log --oneline | grep "bump 6.6" | head -1
-
+          echo "Show the latest kernel version bumps"
+          git log --oneline | grep -i "bump 6.6 to" | head -1
+          git log --oneline | grep -i "bump 6.12 to" | head -1
+          
       - name: Prepare config file
         run: |
           cp ./nss-setup/diffconfig.mx4300.all.nss .config
