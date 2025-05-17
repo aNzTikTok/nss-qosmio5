@@ -247,20 +247,9 @@ CONFIG_PACKAGE_wget-ssl=y
 CONFIG_PACKAGE_speedtest-go=y
 CONFIG_PACKAGE_ethtool-full=y
 
-# Prometheus node-exporter
-CONFIG_PACKAGE_prometheus-node-exporter-lua=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-hostapd_stations=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-nat_traffic=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-netstat=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-openwrt=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-uci_dhcp_host=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-wifi=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-wifi_stations=y
-
 # Travelmate
 CONFIG_PACKAGE_luci-app-travelmate=y
 CONFIG_PACKAGE_travelmate=y
-
 
 # Wireguard
 CONFIG_PACKAGE_luci-app-wireguard=y
@@ -436,8 +425,6 @@ CONFIG_PACKAGE_kmod-iptunnel6=y
 CONFIG_PACKAGE_kmod-nf-nathelper=y
 
 # Routing, Multicast, BFD
-CONFIG_FRR_INTERNAL=y
-CONFIG_FRR_NO_SNMP=y
 CONFIG_LLDPD_WITH_CDP=y
 CONFIG_LLDPD_WITH_CUSTOM=y
 CONFIG_LLDPD_WITH_DOT1=y
@@ -452,9 +439,6 @@ CONFIG_LLDPD_WITH_SONMP=y
 CONFIG_PACKAGE_bird3=y
 CONFIG_PACKAGE_bird3c=y
 CONFIG_PACKAGE_bird3cl=y
-CONFIG_PACKAGE_frr=y
-CONFIG_PACKAGE_frr-watchfrr=y
-CONFIG_PACKAGE_frr-zebra=y
 CONFIG_PACKAGE_igmpproxy=y
 CONFIG_PACKAGE_ip-bridge=y
 CONFIG_PACKAGE_kmod-sched-core=y
@@ -575,50 +559,6 @@ CONFIG_PACKAGE_kmod-nft-xfrm=y
 CONFIG_PACKAGE_kmod-xfrm-interface=y
 CONFIG_PACKAGE_luci-proto-xfrm=y
 CONFIG_PACKAGE_xfrm=y
-
-# FRR Free Ranging Routing
-CONFIG_FRR_INTERNAL=y
-CONFIG_FRR_SNMP=y
-CONFIG_PACKAGE_frr=y
-CONFIG_PACKAGE_frr-babeld=y
-CONFIG_PACKAGE_frr-bfdd=y
-CONFIG_PACKAGE_frr-bgpd=y
-CONFIG_PACKAGE_frr-eigrpd=y
-CONFIG_PACKAGE_frr-fabricd=y
-CONFIG_PACKAGE_frr-isisd=y
-CONFIG_PACKAGE_frr-ldpd=y
-CONFIG_PACKAGE_frr-nhrpd=y
-CONFIG_PACKAGE_frr-ospf6d=y
-CONFIG_PACKAGE_frr-ospfd=y
-CONFIG_PACKAGE_frr-pathd=y
-CONFIG_PACKAGE_frr-pbrd=y
-CONFIG_PACKAGE_frr-pimd=y
-CONFIG_PACKAGE_frr-pythontools=y
-CONFIG_PACKAGE_frr-ripd=y
-CONFIG_PACKAGE_frr-ripngd=y
-CONFIG_PACKAGE_frr-staticd=y
-CONFIG_PACKAGE_frr-vrrpd=y
-CONFIG_PACKAGE_frr-watchfrr=y
-CONFIG_PACKAGE_frr-zebra=y
-CONFIG_PACKAGE_libatomic=y
-CONFIG_PACKAGE_libbz2=y
-CONFIG_PACKAGE_libcap=y
-CONFIG_PACKAGE_libcares=y
-CONFIG_PACKAGE_libncurses=y
-CONFIG_PACKAGE_libnetsnmp=y
-CONFIG_PACKAGE_libpci=y
-CONFIG_PACKAGE_libpcre2=y
-CONFIG_PACKAGE_libprotobuf-c=y
-CONFIG_PACKAGE_libpython3=y
-CONFIG_PACKAGE_libreadline=y
-CONFIG_PACKAGE_librt=y
-CONFIG_PACKAGE_libyang=y
-CONFIG_PACKAGE_more=y
-CONFIG_PACKAGE_python3-base=y
-CONFIG_PACKAGE_python3-light=y
-CONFIG_PACKAGE_python3-logging=y
-CONFIG_PACKAGE_terminfo=y
-CONFIG_PACKAGE_zlib=y
 
 # FreeRADIUS 3
 CONFIG_FREERADIUS3_OPENSSL=y
