@@ -133,7 +133,7 @@ jobs:
           git fetch upstream-openwrt
           git rebase --rebase-merges upstream-openwrt/main
           echo "Show the latest kernel version bump"
-          git log  --oneline | grep "bump 6.6" | head -1
+          git log  | grep "bump 6.6" | head -2
 
       - name: Prepare config file
         run: |
