@@ -81,6 +81,8 @@ jobs:
           gcc --version
           echo "Show CPU core count:"
           nproc
+          echo "Show CPU model"
+          cat /proc/cpuinfo | grep "model name" | head -1
           echo "Show Total memory:"
           free -h
           
