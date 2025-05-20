@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main-nss
+          fetch-depth: 0       # Fetch full history
           # fetch-depth: 100   # Adjust depth based on how far back the bump commit is
           # fetch-depth: 1     # default shallow clone
-          fetch-depth: 0     # Fetch full history
 
       - name: Cherry-pick nat46 commit from AgustinLorenzo/openwrt
         run: |
@@ -26,6 +26,18 @@ jobs:
           git fetch upstream e061d75944c2096cee083fad8b0cedca41725830
           git cherry-pick e061d75944c2096cee083fad8b0cedca41725830
           git remote remove upstream
+
+      - name: Git rebase to upstream/main
+        run: |
+          git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
+          git fetch upstream-openwrt
+          git rebase --rebase-merges upstream-openwrt/main
+
+      - name: Search for kernel bump commits
+        run: |  
+          echo "Show the latest kernel version bumps"
+          git log --oneline | grep -i "bump 6.6 to" | head -1
+          git log --oneline | grep -i "bump 6.12 to" | head -1
 
       - name: Show available disk space before cleanup
         run: |
@@ -109,18 +121,6 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-
-      - name: Git rebase to upstream/main
-        run: |
-          git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
-          git fetch upstream-openwrt
-          git rebase --rebase-merges upstream-openwrt/main
-
-      - name: Search for kernel bump commits
-        run: |  
-          echo "Show the latest kernel version bumps"
-          git log --oneline | grep -i "bump 6.6 to" | head -1
-          git log --oneline | grep -i "bump 6.12 to" | head -1
           
       - name: Prepare config file
         run: |
