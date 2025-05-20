@@ -18,6 +18,15 @@ jobs:
           # fetch-depth: 1     # default shallow clone
           fetch-depth: 0     # Fetch full history
 
+      - name: Cherry-pick nat46 commit from AgustinLorenzo/openwrt
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote add upstream https://github.com/AgustinLorenzo/openwrt.git
+          git fetch upstream e061d75944c2096cee083fad8b0cedca41725830
+          git cherry-pick e061d75944c2096cee083fad8b0cedca41725830
+          git remote remove upstream
+
       - name: Show available disk space before cleanup
         run: |
           echo "Available disk space before cleanup:"
@@ -103,8 +112,6 @@ jobs:
 
       - name: Git rebase to upstream/main
         run: |
-          git config --global user.email "test@test.com"
-          git config --global user.name "test only"
           git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
           git fetch upstream-openwrt
           git rebase --rebase-merges upstream-openwrt/main
