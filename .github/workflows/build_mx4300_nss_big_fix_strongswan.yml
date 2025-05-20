@@ -104,6 +104,7 @@ jobs:
       - name: Git rebase to upstream/main
         run: |
           git config --global user.email "test@test.com"
+          git config --global user.name "test only"
           git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
           git fetch upstream-openwrt
           git rebase --rebase-merges upstream-openwrt/main
