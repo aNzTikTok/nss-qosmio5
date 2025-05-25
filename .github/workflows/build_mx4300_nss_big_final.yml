@@ -18,13 +18,13 @@ jobs:
           # fetch-depth: 100   # Adjust depth based on how far back the bump commit is
           # fetch-depth: 1     # default shallow clone
 
-      - name: Git rebase to upstream/main
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
-          git fetch upstream-openwrt
-          git rebase upstream-openwrt/main
+      # - name: Git rebase to upstream/main
+        # run: |
+          # git config user.name "GitHub Actions"
+          # git config user.email "actions@github.com"
+          # git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
+          # git fetch upstream-openwrt
+          # git rebase upstream-openwrt/main
           # git rebase --rebase-merges upstream-openwrt/main
 
       - name: Search for kernel bump commits
