@@ -20,7 +20,7 @@ jobs:
 
       - name: Force kernel to 6.6
         run: |
-          sed -i 's/KERNEL_PATCHVER := .*/KERNEL_PATCHVER := 6.6/' target/linux/<your_target>/Makefile
+          sed -i 's/KERNEL_PATCHVER := .*/KERNEL_PATCHVER := 6.6/' target/linux/qualcommax/Makefile
 
       - name: Git rebase to upstream/main
         run: |
