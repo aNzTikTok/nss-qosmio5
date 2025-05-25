@@ -1,4 +1,4 @@
-name: Build MX4300 Big NSS StrongSwan Fix
+name: Build MX4300 Big NSS Working
 on:
   workflow_dispatch:
 
@@ -27,12 +27,12 @@ jobs:
           git cherry-pick e061d75944c2096cee083fad8b0cedca41725830
           git remote remove upstream
 
-      - name: Git rebase to upstream/main
-        run: |
-          git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
-          git fetch upstream-openwrt
-          git rebase upstream-openwrt/main
-          # git rebase --rebase-merges upstream-openwrt/main
+      #- name: Git rebase to upstream/main
+        #run: |
+          #git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
+          #git fetch upstream-openwrt
+          #git rebase upstream-openwrt/main
+          #git rebase --rebase-merges upstream-openwrt/main
 
       - name: Search for kernel bump commits
         run: |  
