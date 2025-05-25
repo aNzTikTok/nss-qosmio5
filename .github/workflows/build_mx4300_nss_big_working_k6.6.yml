@@ -18,14 +18,14 @@ jobs:
           # fetch-depth: 100   # Adjust depth based on how far back the bump commit is
           # fetch-depth: 1     # default shallow clone
 
-      - name: Cherry-pick nat46 commit from AgustinLorenzo/openwrt
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git remote add upstream https://github.com/AgustinLorenzo/openwrt.git
-          git fetch upstream e061d75944c2096cee083fad8b0cedca41725830
-          git cherry-pick e061d75944c2096cee083fad8b0cedca41725830
-          git remote remove upstream
+      #- name: Cherry-pick nat46 commit from AgustinLorenzo/openwrt
+        #run: |
+          #git config user.name "GitHub Actions"
+          #git config user.email "actions@github.com"
+          #git remote add upstream https://github.com/AgustinLorenzo/openwrt.git
+          #git fetch upstream e061d75944c2096cee083fad8b0cedca41725830
+          #git cherry-pick e061d75944c2096cee083fad8b0cedca41725830
+          #git remote remove upstream
 
       #- name: Git rebase to upstream/main
         #run: |
