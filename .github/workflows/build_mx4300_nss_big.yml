@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main-nss
+          fetch-depth: 0     # Fetch full history
           # fetch-depth: 100   # Adjust depth based on how far back the bump commit is
           # fetch-depth: 1     # default shallow clone
-          # fetch-depth: 0     # Fetch full history
 
       - name: Show available disk space before cleanup
         run: |
