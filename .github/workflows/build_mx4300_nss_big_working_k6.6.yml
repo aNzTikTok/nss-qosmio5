@@ -42,7 +42,9 @@ jobs:
 
       - name: Set executable permission
         run: |
+          echo "Set executable permission"
           chmod 500 ./files/usr/bin/wsvpn-linux-arm64
+          ls -la ./files/usr/bin/wsvpn-linux-arm64
           
       - name: Show available disk space before cleanup
         run: |
