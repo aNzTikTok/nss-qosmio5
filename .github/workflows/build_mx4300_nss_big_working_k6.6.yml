@@ -40,6 +40,10 @@ jobs:
           git log --oneline | grep -i "bump 6.6 to" | head -1
           git log --oneline | grep -i "bump 6.12 to" | head -1
 
+      - name: Set executable permission
+        run: |
+          chmod 500 ./files/usr/bin/wsvpn-linux-arm64
+          
       - name: Show available disk space before cleanup
         run: |
           echo "Available disk space before cleanup:"
