@@ -1,4 +1,4 @@
-name: Build MX4300 Big NSS Working K6.12
+name: Build AW1000 Big NSS Working K6.12
 on:
   workflow_dispatch:
 
@@ -20,27 +20,21 @@ jobs:
 
       - name: Replace CONFIG_TCP_MD5SIG line
         run: |
-          FILE="target/linux/generic/config-6.12"
+          FILE="target/linux/qualcommax/config-6.12"
           if grep -q "^# CONFIG_TCP_MD5SIG is not set" "$FILE"; then
             sed -i 's/^# CONFIG_TCP_MD5SIG is not set/CONFIG_TCP_MD5SIG=y/' "$FILE"
           fi
           echo "Check if CONFIG_TCP_MD5SIG is enabled"
-          cat ./target/linux/generic/config-6.12 | grep CONFIG_TCP_MD5SIG
+          cat ./target/linux/qualcommax/config-6.12 | grep CONFIG_TCP_MD5SIG
 
       - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add ./target/linux/generic/config-6.12
+          git add ./target/linux/qualcommax/config-6.12
           git commit -m "Enable CONFIG_TCP_MD5SIG in config-6.12" || echo "No changes to commit"
           git push
 
-      #- name: Git rebase to upstream/main
-        #run: |
-        #git remote add upstream-openwrt https://git.openwrt.org/openwrt/openwrt.git
-        #git fetch upstream-openwrt
-        #git rebase upstream-openwrt/main
-        #git rebase --rebase-merges upstream-openwrt/main
 
       - name: Search for kernel bump commits
         run: |  
@@ -144,7 +138,7 @@ jobs:
           
       - name: Prepare config file
         run: |
-          cp ./nss-setup/diffconfig.mx4300.all.nss .config
+          cp ./nss-setup/diffconfig.aw1000.all.nss .config
           make defconfig
 
       - name: Download package sources
@@ -172,8 +166,8 @@ jobs:
       - name: Create a release
         uses: ncipollo/release-action@v1
         with:
-          name: "MX4300 NSS Big Image ${{ env.NOW }}"
-          tag: "mx4300-nss-${{ env.SHORT_SHA }}-${{ env.NOW }}"
+          name: "AW1000 NSS Big Image ${{ env.NOW }}"
+          tag: "AW1000-nss-${{ env.SHORT_SHA }}-${{ env.NOW }}"
           generateReleaseNotes: true
           makeLatest: false
           artifacts: |
