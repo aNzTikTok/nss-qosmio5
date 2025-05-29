@@ -18,15 +18,6 @@ jobs:
           # fetch-depth: 100   # Adjust depth based on how far back the bump commit is
           # fetch-depth: 1     # default shallow clone
 
-      - name: Replace CONFIG_TCP_MD5SIG line
-        run: |
-          FILE="target/linux/qualcommax/config-6.12"
-          if grep -q "^# CONFIG_TCP_MD5SIG is not set" "$FILE"; then
-            sed -i 's/^# CONFIG_TCP_MD5SIG is not set/CONFIG_TCP_MD5SIG=y/' "$FILE"
-          fi
-          echo "Check if CONFIG_TCP_MD5SIG is enabled"
-          cat ./target/linux/qualcommax/config-6.12 | grep CONFIG_TCP_MD5SIG
-
       - name: Commit changes
         run: |
           git config user.name "github-actions"
